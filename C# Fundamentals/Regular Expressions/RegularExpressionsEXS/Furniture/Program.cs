@@ -18,13 +18,10 @@ namespace Furniture
 
                 if (Regex.IsMatch(input, pattern))
                 {
-                    var matchedInput = Regex.Matches(input, pattern);
+                    var matchedInput = Regex.Match(input, pattern);
 
-                    foreach (Match match in matchedInput)
-                    {
-                        Console.WriteLine(match.Groups["name"].Value);
-                        totalMoney += double.Parse(match.Groups["price"].Value)*int.Parse(match.Groups["count"].Value);
-                    }
+                    Console.WriteLine(matchedInput.Groups["name"].Value);
+                    totalMoney += double.Parse(matchedInput.Groups["price"].Value) * int.Parse(matchedInput.Groups["count"].Value);
                 }
             }
             Console.WriteLine($"Total money spend: {totalMoney:f2}");
