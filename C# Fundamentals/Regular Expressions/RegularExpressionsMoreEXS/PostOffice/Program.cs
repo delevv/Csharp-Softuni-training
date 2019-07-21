@@ -35,15 +35,13 @@ namespace PostOffice
                     lettersAndCount[currentLetter] += count;
                 }
             }
-            string thirdPart = parts[2];
-
             foreach (var kvp in lettersAndCount)
             {
                 char letter = kvp.Key;
                 int count = kvp.Value;
                 string thirdPartPattern = @"(^|(?<=\s))[" + letter + @"][^\s]{" + (count - 1) + @"}\b";
 
-                var matchedWords = Regex.Matches(thirdPart, thirdPartPattern);
+                var matchedWords = Regex.Matches(parts[2], thirdPartPattern);
 
                 foreach (Match word in matchedWords)
                 {
