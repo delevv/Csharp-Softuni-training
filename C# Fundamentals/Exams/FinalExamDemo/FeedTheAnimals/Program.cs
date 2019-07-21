@@ -8,7 +8,7 @@ namespace FeedTheAnimals
     {
         static void Main(string[] args)
         {
-            var animals = new Dictionary<string, Dictionary<string, int>>();
+            var animals = new Dictionary<string, int>();
             var areas = new Dictionary<string, int>();
 
             string command;
@@ -26,8 +26,7 @@ namespace FeedTheAnimals
                 {
                     if (!animals.ContainsKey(name))
                     {
-                        animals[name] = new Dictionary<string, int>();
-                        animals[name][area] = food;
+                        animals[name] = food;
 
                         if (!areas.ContainsKey(area))
                         {
@@ -40,16 +39,16 @@ namespace FeedTheAnimals
                     }
                     else
                     {
-                        animals[name][area] += food;
+                        animals[name]+= food;
                     }
                 }
                 else if (action == "Feed")
                 {
                     if (animals.ContainsKey(name))
                     {
-                        animals[name][area] -= food;
+                        animals[name] -= food;
 
-                        if (animals[name][area] <= 0)
+                        if (animals[name] <= 0)
                         {
                             Console.WriteLine($"{name} was successfully fed");
                             animals.Remove(name);
@@ -59,19 +58,16 @@ namespace FeedTheAnimals
                 }
             }
             animals = animals
-                .OrderByDescending(x => x.Value.Values.Sum())
+                .OrderByDescending(x => x.Value)
                 .ThenBy(x => x.Key)
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
             Console.WriteLine("Animals: ");
-
-            foreach (var kvp in animals)
-            {
-                foreach (var area in kvp.Value)
+            
+                foreach (var animal in animals)
                 {
-                    Console.WriteLine($"{kvp.Key} -> {area.Value}g");
+                    Console.WriteLine($"{animal.Key} -> {animal.Value}g");
                 }
-            }
 
             areas = areas
                 .OrderByDescending(x => x.Value)
