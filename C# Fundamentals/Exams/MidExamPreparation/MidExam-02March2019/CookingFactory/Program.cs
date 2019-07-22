@@ -15,33 +15,33 @@ namespace CookingFactory
 
             while ((command = Console.ReadLine()) != "Bake It!")
             {
-                List<int> batches = command.Split("#").Select(int.Parse).ToList();
+                List<int> batch = command.Split("#").Select(int.Parse).ToList();
 
-                int currentTotal = batches.Sum();
-                int currentCount = batches.Count;
+                int currentTotal = batch.Sum();
+                int currentCount = batch.Count;
 
                 if (currentTotal > bestTotal)
                 {
                     bestTotal = currentTotal;
                     bestCount = currentCount;
-                    bestBatch = batches.ToList();
+                    bestBatch = batch.ToList();
                 }
                 else if (currentTotal == bestTotal)
                 {
-                    if (batches.Average() > bestBatch.Average())
+                    if (batch.Average() > bestBatch.Average())
                     {
                         bestTotal = currentTotal;
                         bestCount = currentCount;
-                        bestBatch = batches.ToList();
+                        bestBatch = batch.ToList();
                     }
                 }
-                if(currentTotal==bestTotal && batches.Average() == bestBatch.Average())
+                if(currentTotal==bestTotal && batch.Average() == bestBatch.Average())
                 {
-                    if (batches.Count < bestBatch.Count)
+                    if (batch.Count < bestBatch.Count)
                     {
                         bestTotal = currentTotal;
                         bestCount = currentCount;
-                        bestBatch = batches.ToList();
+                        bestBatch = batch.ToList();
                     }
                 }
             }
