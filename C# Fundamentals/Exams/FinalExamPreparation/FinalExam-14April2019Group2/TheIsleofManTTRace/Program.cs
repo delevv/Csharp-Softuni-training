@@ -21,11 +21,7 @@ namespace TheIsleofManTTRace
                     string code = matchedMessage.Groups["code"].Value;
                     int lenght = int.Parse(matchedMessage.Groups["lenght"].Value);
 
-                    if (code.Length != lenght)
-                    {
-                        Console.WriteLine("Nothing found!");
-                    }
-                    else
+                    if (code.Length == lenght)
                     {
                         string decriptedCode = "";
 
@@ -37,10 +33,7 @@ namespace TheIsleofManTTRace
                         break;
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Nothing found!");
-                }
+                Console.WriteLine("Nothing found!");
             }
         }
     }
