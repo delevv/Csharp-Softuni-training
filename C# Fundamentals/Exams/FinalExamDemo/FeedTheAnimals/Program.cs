@@ -13,7 +13,7 @@ namespace FeedTheAnimals
 
             string command;
 
-            while((command=Console.ReadLine())!="Last Info")
+            while ((command = Console.ReadLine()) != "Last Info")
             {
                 string[] commandArgs = command.Split(":");
 
@@ -39,7 +39,7 @@ namespace FeedTheAnimals
                     }
                     else
                     {
-                        animals[name]+= food;
+                        animals[name] += food;
                     }
                 }
                 else if (action == "Feed")
@@ -63,15 +63,15 @@ namespace FeedTheAnimals
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
             Console.WriteLine("Animals: ");
-            
-                foreach (var animal in animals)
-                {
-                    Console.WriteLine($"{animal.Key} -> {animal.Value}g");
-                }
+
+            foreach (var kvp in animals)
+            {
+                Console.WriteLine($"{kvp.Key} -> {kvp.Value}g");
+            }
 
             areas = areas
                 .OrderByDescending(x => x.Value)
-                .Where(x=>x.Value>0)
+                .Where(x => x.Value > 0)
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
             Console.WriteLine("Areas with hungry animals: ");
