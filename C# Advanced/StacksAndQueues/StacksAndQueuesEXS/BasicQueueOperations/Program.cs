@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace queue
 {
@@ -18,13 +19,13 @@ namespace queue
 
             for (int i = 0; i < elementsCount; i++)
             {
-                queue.Push(elements[i]);
+                queue.Enqueue(elements[i]);
             }
-            for (int i = 0; i < elementsToPop; i++)
+            for (int i = 0; i < elementsToDequeue; i++)
             {
                 if (queue.Count != 0)
                 {
-                    queue.Pop();
+                    queue.Dequeue();
                 }
             }
             if (queue.Contains(specialNumber))
