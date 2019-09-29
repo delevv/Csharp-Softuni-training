@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumMatrixElements", "SumMatrixElements\SumMatrixElements.csproj", "{D385FB13-BDE0-4CD1-9944-927FE9ADE4BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumMatrixElements", "SumMatrixElements\SumMatrixElements.csproj", "{D385FB13-BDE0-4CD1-9944-927FE9ADE4BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumMatrixColumns", "SumMatrixColumns\SumMatrixColumns.csproj", "{4B8A0035-0C80-494B-8B06-F2EB363F9AC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumMatrixColumns", "SumMatrixColumns\SumMatrixColumns.csproj", "{4B8A0035-0C80-494B-8B06-F2EB363F9AC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimaryDiagonal", "PrimaryDiagonal\PrimaryDiagonal.csproj", "{B453DBEE-B35D-4F93-BFCD-F76C5A90403D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimaryDiagonal", "PrimaryDiagonal\PrimaryDiagonal.csproj", "{B453DBEE-B35D-4F93-BFCD-F76C5A90403D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SymbolInMatrix", "SymbolInMatrix\SymbolInMatrix.csproj", "{2ACD8BFA-F250-474D-8496-5CFB3F95B57F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SymbolInMatrix", "SymbolInMatrix\SymbolInMatrix.csproj", "{2ACD8BFA-F250-474D-8496-5CFB3F95B57F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquareWithMaximumSum", "SquareWithMaximumSum\SquareWithMaximumSum.csproj", "{C52FE679-5C8F-41F0-A615-472A550D7005}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2ACD8BFA-F250-474D-8496-5CFB3F95B57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ACD8BFA-F250-474D-8496-5CFB3F95B57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ACD8BFA-F250-474D-8496-5CFB3F95B57F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C52FE679-5C8F-41F0-A615-472A550D7005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C52FE679-5C8F-41F0-A615-472A550D7005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C52FE679-5C8F-41F0-A615-472A550D7005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C52FE679-5C8F-41F0-A615-472A550D7005}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
