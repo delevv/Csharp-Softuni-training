@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bombs", "Bombs\Bombs.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miner", "Miner\Miner.csproj", "{0B1EE614-25F1-45A5-B4CA-73F03AA5BD0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MutantVampireBunnies", "MutantVampireBunnies\MutantVampireBunnies.csproj", "{A191A85D-E97B-4B55-800C-2A67602CCA05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{0B1EE614-25F1-45A5-B4CA-73F03AA5BD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B1EE614-25F1-45A5-B4CA-73F03AA5BD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B1EE614-25F1-45A5-B4CA-73F03AA5BD0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A191A85D-E97B-4B55-800C-2A67602CCA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A191A85D-E97B-4B55-800C-2A67602CCA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A191A85D-E97B-4B55-800C-2A67602CCA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A191A85D-E97B-4B55-800C-2A67602CCA05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
