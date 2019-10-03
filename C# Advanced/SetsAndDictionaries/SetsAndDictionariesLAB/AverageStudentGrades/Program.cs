@@ -27,7 +27,7 @@ namespace AverageStudentGrades
             }
             foreach (var student in students)
             {
-                Console.WriteLine($"Ivancho -> {string.Join(" ", student.Value.Select(x => x.ToString("F2")))} ({student.Value.Average():f2})");
+                Console.WriteLine($"{student.Key} -> {string.Join(" ", student.Value.Select(x => x.ToString("F2")))} (avg: {student.Value.Average():f2})");
             }
         }
     }
