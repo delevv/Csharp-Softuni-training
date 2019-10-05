@@ -23,7 +23,7 @@ namespace SoftUniParty
                         }
                         else
                         {
-                            normalPartyList.Remove(command)
+                            normalPartyList.Remove(command);
                         }
                     }
                     break;
@@ -36,11 +36,11 @@ namespace SoftUniParty
                     }
                     else
                     {
-                        normalPartyList.Add(command)
+                        normalPartyList.Add(command);
                     }
                 }
             }
-            Console.WriteLine(vipPartyList.Count);
+            Console.WriteLine(vipPartyList.Count+normalPartyList.Count);
 
             foreach (var name in vipPartyList)
             {
