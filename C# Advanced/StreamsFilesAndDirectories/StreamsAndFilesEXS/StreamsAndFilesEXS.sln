@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCount", "WordCount\Word
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyBinaryFile", "CopyBinaryFile\CopyBinaryFile.csproj", "{B544036A-087B-44DE-A584-44AF2311820A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryTraversal", "DirectoryTraversal\DirectoryTraversal.csproj", "{8120437D-DDB0-468B-B333-776C18F3E045}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipAndExtract", "ZipAndExtract\ZipAndExtract.csproj", "{DDBD98EB-EA49-4EB5-A347-DE4069033E38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{B544036A-087B-44DE-A584-44AF2311820A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B544036A-087B-44DE-A584-44AF2311820A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B544036A-087B-44DE-A584-44AF2311820A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8120437D-DDB0-468B-B333-776C18F3E045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8120437D-DDB0-468B-B333-776C18F3E045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8120437D-DDB0-468B-B333-776C18F3E045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8120437D-DDB0-468B-B333-776C18F3E045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDBD98EB-EA49-4EB5-A347-DE4069033E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDBD98EB-EA49-4EB5-A347-DE4069033E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDBD98EB-EA49-4EB5-A347-DE4069033E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDBD98EB-EA49-4EB5-A347-DE4069033E38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
