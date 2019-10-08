@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvenLines", "EvenLines\EvenLines.csproj", "{FFFEEDCE-8AD7-4770-8EA1-90100BD9612F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvenLines", "EvenLines\EvenLines.csproj", "{FFFEEDCE-8AD7-4770-8EA1-90100BD9612F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineNumbers", "LineNumbers\LineNumbers.csproj", "{59BB9A13-0280-4E5C-94B7-CEAF6E3F7551}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineNumbers", "LineNumbers\LineNumbers.csproj", "{59BB9A13-0280-4E5C-94B7-CEAF6E3F7551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCount", "WordCount\WordCount.csproj", "{25DA622F-173D-4BF5-8C59-80156A062974}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCount", "WordCount\WordCount.csproj", "{25DA622F-173D-4BF5-8C59-80156A062974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyBinaryFile", "CopyBinaryFile\CopyBinaryFile.csproj", "{B544036A-087B-44DE-A584-44AF2311820A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{25DA622F-173D-4BF5-8C59-80156A062974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25DA622F-173D-4BF5-8C59-80156A062974}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25DA622F-173D-4BF5-8C59-80156A062974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B544036A-087B-44DE-A584-44AF2311820A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B544036A-087B-44DE-A584-44AF2311820A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B544036A-087B-44DE-A584-44AF2311820A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B544036A-087B-44DE-A584-44AF2311820A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
