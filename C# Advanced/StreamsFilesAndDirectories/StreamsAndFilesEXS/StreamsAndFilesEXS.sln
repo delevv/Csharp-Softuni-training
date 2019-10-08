@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvenLines", "EvenLines\EvenLines.csproj", "{FFFEEDCE-8AD7-4770-8EA1-90100BD9612F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineNumbers", "LineNumbers\LineNumbers.csproj", "{59BB9A13-0280-4E5C-94B7-CEAF6E3F7551}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFFEEDCE-8AD7-4770-8EA1-90100BD9612F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFFEEDCE-8AD7-4770-8EA1-90100BD9612F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFFEEDCE-8AD7-4770-8EA1-90100BD9612F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFFEEDCE-8AD7-4770-8EA1-90100BD9612F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59BB9A13-0280-4E5C-94B7-CEAF6E3F7551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BB9A13-0280-4E5C-94B7-CEAF6E3F7551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BB9A13-0280-4E5C-94B7-CEAF6E3F7551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BB9A13-0280-4E5C-94B7-CEAF6E3F7551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {456BDB9E-1685-41B3-BF8F-6A30625BE2FE}
+	EndGlobalSection
+EndGlobal

@@ -24,13 +24,12 @@ namespace EvenLines
                         for (int i = 0; i < currentLine.Count; i++)
                         {
                             var currentWord = currentLine[i];
+
                             foreach (var symbol in symbols)
                             {
                                 currentWord = currentWord.Replace(symbol, '@');
-                                currentLine[i] = currentWord;
-
-
                             }
+                            currentLine[i] = currentWord;
                         }
                         currentLine.Reverse();
                         Console.WriteLine(string.Join(" ", currentLine));
