@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CarManufacturer
 {
-    class Car
+    public class Car
     {
         private string make;
         private string model;
@@ -46,6 +46,17 @@ namespace CarManufacturer
         {
             this.Engine = engine;
             this.Tires = tires;
+        }
+        public void Drive(double distance)
+        {
+            if (this.FuelQuantity - distance/100  * this.FuelConsumption >= 0)
+            {
+                this.FuelQuantity -= distance/100  * this.FuelConsumption;
+            }
+            else
+            {
+                Console.WriteLine("Not enough fuel to perform this trip!");
+            }
         }
     }
 }
