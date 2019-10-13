@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace DefiningClasses
 {
@@ -19,10 +20,12 @@ namespace DefiningClasses
                 var person = new Person(personName, personAge);
                 family.AddMember(person);
             }
-
-            var oldestPerson = family.GetOldestMember();
-
-            Console.WriteLine($"{oldestPerson.Name} {oldestPerson.Age}");
+       
+            family.PeopleList
+                .Where(p => p.Age > 30)
+                .OrderBy(p => p.Name)
+                .ToList()
+                .ForEach(p => Console.WriteLine($"{p.Name} - {p.Age}"));
         }   
     }
 }

@@ -11,8 +11,8 @@ namespace DefiningClasses
 
         public List<Person> PeopleList
         {       
-            get { return PeopleList; }
-            set { PeopleList = value; }
+            get { return this.peopleList; }
+            set { this.peopleList = value; }
         }
 
         public Family()
