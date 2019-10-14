@@ -18,5 +18,29 @@ namespace CarSalesman
             Weight = weight;
             Color = color;
         }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"{this.Model}:")
+                .AppendLine($"  {this.Engine}");
+            if (this.Weight == 0)
+            {
+                sb.AppendLine($"  Weight: n/a");
+            }
+            else
+            {
+                sb.AppendLine($"  Weight: {this.Weight}");
+            }
+            if (this.Color == "")
+            {
+                sb.AppendLine($"  Color: n/a");
+            }
+            else
+            {
+                sb.AppendLine($"  Color: {this.Color}");
+            }
+
+            return sb.ToString().Trim();
+        }
     }
 }

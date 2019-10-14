@@ -18,5 +18,30 @@ namespace CarSalesman
             Displacement = displacement;
             Efficiency = efficiency;
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"  {this.Model}:")
+                .AppendLine($"    Power: {this.Power}");
+            if (this.Displacement == 0)
+            {
+                sb.AppendLine($"    Displacement: n/a");
+            }
+            else
+            {
+                sb.AppendLine($"    Displacement: {this.Displacement}");
+            }
+            if (this.Efficiency == "")
+            {
+                sb.AppendLine($"    Efficiency: n/a");
+            }
+            else
+            {
+                sb.AppendLine($"    Efficiency: {this.Efficiency}");
+            }
+
+            return sb.ToString().Trim();
+        }
     }
 }

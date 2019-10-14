@@ -72,45 +72,7 @@ namespace CarSalesman
 
             foreach (var car in cars)
             {
-                Console.WriteLine($"{car.Model}:");
-                Console.WriteLine($"  {car.Engine.Model}:");
-                Console.WriteLine($"    Power: {car.Engine.Power}");
-
-                if (car.Engine.Displacement == 0)
-                {
-                    Console.WriteLine($"    Displacement: n/a");
-                }
-                else
-                {
-                    Console.WriteLine($"    Displacement: {car.Engine.Displacement}");
-                }
-
-                if (car.Engine.Efficiency == "")
-                {
-                    Console.WriteLine($"    Efficiency: n/a");
-                }
-                else
-                {
-                    Console.WriteLine($"    Efficiency: {car.Engine.Efficiency}");
-                }
-
-                if (car.Weight == 0)
-                {
-                    Console.WriteLine($"  Weight: n/a");
-                }
-                else
-                {
-                    Console.WriteLine($"  Weight: {car.Weight}");
-                }
-
-                if (car.Color == "")
-                {
-                    Console.WriteLine($"  Color: n/a");
-                }
-                else
-                {
-                    Console.WriteLine($"  Color: {car.Color}");
-                }
+                Console.WriteLine(car);
             }
         }
     }
