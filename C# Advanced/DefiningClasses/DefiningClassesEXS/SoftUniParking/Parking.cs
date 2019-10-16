@@ -8,13 +8,13 @@ namespace SoftUniParking
     public class Parking
     {
         private List<Car> Cars { get; set; }
-        private int Capacity { get; set; }
+        private int capacity { get; set; }
         public int Count => this.Cars.Count();
 
         public Parking(int capacity)
         {
             this.Cars = new List<Car>();
-            this.Capacity = capacity;
+            this.capacity = capacity;
         }
 
         public string AddCar(Car car)
@@ -23,7 +23,7 @@ namespace SoftUniParking
             {
                 return "Car with that registration number, already exists!";
             }
-            if (this.Cars.Count == this.Capacity)
+            if (this.Cars.Count == this.capacity)
             {
                 return "Parking is full!";
             }
