@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable<T>
     {
         private const int InitialCapacity = 2;
 
@@ -52,7 +53,7 @@ namespace CustomList
 
         public void Reverse()
         {
-            for (int i = 0; i < this.Count/2; i++)
+            for (int i = 0; i < this.Count / 2; i++)
             {
                 Swap(i, this.Count - i - 1);
             }
@@ -95,7 +96,7 @@ namespace CustomList
 
         private void ShiftToLeft(int index)
         {
-            for (int i = index; i < this.Count-1; i++)
+            for (int i = index; i < this.Count - 1; i++)
             {
                 this.items[i] = this.items[i + 1];
             }
@@ -161,12 +162,25 @@ namespace CustomList
 
             var sb = new StringBuilder();
 
-            for (int i = 0; i < this.Count-1; i++)
+            for (int i = 0; i < this.Count - 1; i++)
             {
                 sb.Append($"{this.items[i]}, ");
             }
 
-            return sb.ToString().TrimEnd(' ',',');
+            return sb.ToString().TrimEnd(' ', ',');
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = this.Count - 1; i >= 0; i--)
+            {
+                yield return this.items[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

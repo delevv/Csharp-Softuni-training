@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CustomStack
 {
-    public class CustomStack<T>
+    public class CustomStack<T> : IEnumerable<T>
     {
         private const int InitialCapacity = 4;
 
@@ -69,6 +70,19 @@ namespace CustomStack
                 temp[i] = this.items[i];
             }
             this.items = temp;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = this.Count - 1; i >= 0; i--)
+            {
+                yield return this.items[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
