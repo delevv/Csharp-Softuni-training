@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomList", "CustomList\CustomList.csproj", "{273C3BCB-9148-46BC-8EFC-CF1DCD391F97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomList", "CustomList\CustomList.csproj", "{273C3BCB-9148-46BC-8EFC-CF1DCD391F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStack", "CustomStack\CustomStack.csproj", "{35D76508-8D51-4CCF-8B32-60357C897A67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStack", "CustomStack\CustomStack.csproj", "{35D76508-8D51-4CCF-8B32-60357C897A67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleLinkedList", "DoubleLinkedList\DoubleLinkedList.csproj", "{08AC4B40-3925-40EE-A5F1-F7998EFE2F8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{35D76508-8D51-4CCF-8B32-60357C897A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35D76508-8D51-4CCF-8B32-60357C897A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35D76508-8D51-4CCF-8B32-60357C897A67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08AC4B40-3925-40EE-A5F1-F7998EFE2F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08AC4B40-3925-40EE-A5F1-F7998EFE2F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08AC4B40-3925-40EE-A5F1-F7998EFE2F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08AC4B40-3925-40EE-A5F1-F7998EFE2F8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
