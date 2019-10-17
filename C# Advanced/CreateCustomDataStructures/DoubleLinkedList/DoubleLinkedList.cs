@@ -27,16 +27,17 @@ namespace DoubleLinkedList
 
         public void AddFirst(int element)
         {
-            var newHead = new ListNode(element);
 
             if (this.Count == 0)
             {
-                this.head = this.tail = newHead;
+                this.head = this.tail = new ListNode(element);
 
             }
             else
             {
-                head.NextNode = this.head;
+                var newHead = new ListNode(element);
+
+                newHead.NextNode = this.head;
                 head.PreviousNode = newHead;
                 this.head = newHead;
             }
@@ -45,14 +46,13 @@ namespace DoubleLinkedList
 
         public void AddLast(int element)
         {
-            var newTail = new ListNode(element);
-
             if (this.Count == 0)
             {
-                this.tail = this.head = newTail;
+                this.tail = this.head = new ListNode(element);
             }
             else
             {
+                var newTail = new ListNode(element);
                 newTail.PreviousNode = this.tail;
                 this.tail.NextNode = newTail;
                 this.tail = newTail;
@@ -109,9 +109,52 @@ namespace DoubleLinkedList
             return removedElement;
         }
 
-        public void ForEach()
+        public void ForEach(Action<int> action,bool shouldStartFromHead=true)
         {
+            ListNode currentNode = this.head;
 
+            if (!shouldStartFromHead)
+            {
+                currentNode = this.tail;
+            }
+
+            while (currentNode != null)
+            {
+                action(currentNode.Value);
+
+                if (!shouldStartFromHead)
+                {
+                    currentNode = currentNode.PreviousNode;
+                }
+                else
+                {
+                    currentNode = currentNode.NextNode;
+                }
+            }
+        }
+
+        public void Clear()
+        {
+            this.head = null;
+            this.tail = null;
+
+            this.Count = 0;
+        }
+
+        public int[] ToArray()
+        {
+            int[] array = new int[this.Count];
+
+            var currentNode = this.head;
+
+            int counter = 0;
+
+            while (currentNode != null)
+            {
+                array[counter++] = currentNode.Value;
+                currentNode = currentNode.NextNode;   
+            }
+            return array;
         }
     }
 }
