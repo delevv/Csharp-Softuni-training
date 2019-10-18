@@ -4,11 +4,11 @@ using System.Text;
 
 namespace DoubleLinkedList
 {
-    public class DoubleLinkedList
+    public class DoubleLinkedList<T>
     {
         private class ListNode
         {
-            public ListNode(int value)
+            public ListNode(T value)
             {
                 this.Value = value;
             }
@@ -17,7 +17,7 @@ namespace DoubleLinkedList
 
             public ListNode PreviousNode { get; set; }
 
-            public int Value { get; set; }
+            public T Value { get; set; }
         }
 
         private ListNode head;
@@ -25,7 +25,7 @@ namespace DoubleLinkedList
 
         public int Count { get; private set; }
 
-        public void AddFirst(int element)
+        public void AddFirst(T element)
         {
 
             if (this.Count == 0)
@@ -44,7 +44,7 @@ namespace DoubleLinkedList
             this.Count++;
         }
 
-        public void AddLast(int element)
+        public void AddLast(T element)
         {
             if (this.Count == 0)
             {
@@ -60,7 +60,7 @@ namespace DoubleLinkedList
             this.Count++;
         }
 
-        public int RemoveFirst()
+        public T RemoveFirst()
         {
             if (this.Count == 0)
             {
@@ -85,7 +85,7 @@ namespace DoubleLinkedList
             return removedElement;
         }
 
-        public int RemoveLast()
+        public T RemoveLast()
         {
             if (this.Count == 0)
             {
@@ -109,7 +109,7 @@ namespace DoubleLinkedList
             return removedElement;
         }
 
-        public void ForEach(Action<int> action,bool shouldStartFromHead=true)
+        public void ForEach(Action<T> action,bool shouldStartFromHead=true)
         {
             ListNode currentNode = this.head;
 
@@ -141,9 +141,9 @@ namespace DoubleLinkedList
             this.Count = 0;
         }
 
-        public int[] ToArray()
+        public T[] ToArray()
         {
-            int[] array = new int[this.Count];
+            var array = new T[this.Count];
 
             var currentNode = this.head;
 

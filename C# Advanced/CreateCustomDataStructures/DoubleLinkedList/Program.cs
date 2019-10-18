@@ -14,7 +14,7 @@ namespace DoubleLinkedList
             //•	void Clear() – delete all elements in collection
             //•	int[] ToArray() – returns the collection as an array
 
-            var doubleLinkedList = new DoubleLinkedList();
+            var doubleLinkedList = new DoubleLinkedList<int>();
 
             doubleLinkedList.AddFirst(1);
             doubleLinkedList.AddFirst(2);
