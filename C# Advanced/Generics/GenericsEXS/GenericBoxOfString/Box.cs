@@ -15,7 +15,7 @@ namespace GenericBoxOfString
 
         public override string ToString()
         {
-            return $"System.String: {this.Value}";
+            return $"{this.Value.GetType()}: {this.Value}";
         }
     }
 }
