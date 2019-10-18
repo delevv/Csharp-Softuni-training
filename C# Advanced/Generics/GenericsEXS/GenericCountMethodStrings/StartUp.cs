@@ -6,18 +6,18 @@ namespace GenericCountMethodStrings
     {
         public static void Main(string[] args)
         {
-            var counter = int.Parse(Console.ReadLine());
+            var counter = double.Parse(Console.ReadLine());
 
-            var box = new Box<string>();
+            var box = new Box<double>();
 
             for (int i = 0; i < counter; i++)
             {
-                string input = Console.ReadLine();
+                var input = double.Parse(Console.ReadLine());
 
                 box.Values.Add(input);
             }
 
-            var targetItem = Console.ReadLine();
+            var targetItem = double.Parse(Console.ReadLine());
 
            int result= box.CountOfGreaterValuesThan(targetItem);
 
