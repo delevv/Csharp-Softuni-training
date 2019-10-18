@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Tuple
 {
@@ -10,25 +11,29 @@ namespace Tuple
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries);
             var inputPersonBeer = Console.ReadLine()
                 .Split();
-            var inputNumbersInfo = Console.ReadLine()
+            var inputBankInfo = Console.ReadLine()
                 .Split();
 
             var fullName = inputPersonInfo[0] + " " + inputPersonInfo[1];
             var address = inputPersonInfo[2];
+            var town = string.Join(" ",inputPersonInfo.Skip(3));
 
             var name = inputPersonBeer[0];
             var liters = int.Parse(inputPersonBeer[1]);
+            var drunkOrNot = inputPersonBeer[2];
+            var isDrunk = drunkOrNot == "drunk" ? true : false;
 
-            var myInt = int.Parse(inputNumbersInfo[0]);
-            var myDouble = double.Parse(inputNumbersInfo[1]);
+            var personName = inputBankInfo[0];
+            var balance = double.Parse(inputBankInfo[1]);
+            var bankName = inputBankInfo[2];
 
-            var personInfo = new MyTuple<string, string>(fullName, address);
-            var personBeer = new MyTuple<string, int>(name, liters);
-            var numbersInfo = new MyTuple<int, double>(myInt, myDouble);
+            var personInfo = new Threeuple<string, string,string>(fullName, address,town);
+            var personBeer = new Threeuple<string, int,bool>(name, liters,isDrunk);
+            var bankInfo = new Threeuple<string,double,string>(personName, balance,bankName);
 
             Console.WriteLine(personInfo);
             Console.WriteLine(personBeer);
-            Console.WriteLine(numbersInfo);
+            Console.WriteLine(bankInfo);
         }
     }
 }
