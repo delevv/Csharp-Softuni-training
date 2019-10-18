@@ -9,11 +9,11 @@ namespace GenericSwapMethodStrings
         {
             var counter = int.Parse(Console.ReadLine());
 
-            var box = new Box<string>();
+            var box = new Box<int>();
 
             for (int i = 0; i < counter; i++)
             {
-                var input = Console.ReadLine();
+                var input = int.Parse(Console.ReadLine());
 
                 box.Values.Add(input);
             }
