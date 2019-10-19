@@ -15,6 +15,6 @@ namespace IteratorsAndComparators
 
         public string Title { get; set; }
         public int Year { get; set; }
-        public IReadOnlyList<string> Authors { get; set; }
+        public List<string> Authors { get; set; }
     }
 }
