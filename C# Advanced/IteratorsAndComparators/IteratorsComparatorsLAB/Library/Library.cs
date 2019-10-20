@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace IteratorsAndComparators
@@ -10,8 +11,8 @@ namespace IteratorsAndComparators
         private List<Book> books;
 
         public Library(params Book[] books)
-        {
-            this.books = new List<Book>(books);
+        { 
+            this.books = new List<Book>(books).OrderBy(b=>b.Year).ThenBy(b=>b.Title).ToList();
         }
 
         //public IEnumerator<Book> GetEnumerator()
