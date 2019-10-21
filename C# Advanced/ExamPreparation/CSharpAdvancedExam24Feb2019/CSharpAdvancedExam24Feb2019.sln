@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubParty", "ClubParty\ClubParty.csproj", "{36F5159C-06A5-4C9A-AB63-4614E428E233}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClubParty", "ClubParty\ClubParty.csproj", "{36F5159C-06A5-4C9A-AB63-4614E428E233}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TronRacers", "TronRacers\TronRacers.csproj", "{17EECFB2-3D2D-40D3-96BE-EEF3616066B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{36F5159C-06A5-4C9A-AB63-4614E428E233}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36F5159C-06A5-4C9A-AB63-4614E428E233}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36F5159C-06A5-4C9A-AB63-4614E428E233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17EECFB2-3D2D-40D3-96BE-EEF3616066B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17EECFB2-3D2D-40D3-96BE-EEF3616066B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17EECFB2-3D2D-40D3-96BE-EEF3616066B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17EECFB2-3D2D-40D3-96BE-EEF3616066B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
