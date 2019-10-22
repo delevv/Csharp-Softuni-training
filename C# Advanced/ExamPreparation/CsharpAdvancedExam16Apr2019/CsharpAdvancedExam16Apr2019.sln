@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrojanInvasion", "TrojanInv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helen'sAbduction", "Helen'sAbduction\Helen'sAbduction.csproj", "{08371868-192F-4FC7-9F78-4C428269CFAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FightingArena", "FightingArena\FightingArena.csproj", "{AB009C99-AE20-4CB2-B0C5-802078AE3953}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{08371868-192F-4FC7-9F78-4C428269CFAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08371868-192F-4FC7-9F78-4C428269CFAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08371868-192F-4FC7-9F78-4C428269CFAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB009C99-AE20-4CB2-B0C5-802078AE3953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB009C99-AE20-4CB2-B0C5-802078AE3953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB009C99-AE20-4CB2-B0C5-802078AE3953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB009C99-AE20-4CB2-B0C5-802078AE3953}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
