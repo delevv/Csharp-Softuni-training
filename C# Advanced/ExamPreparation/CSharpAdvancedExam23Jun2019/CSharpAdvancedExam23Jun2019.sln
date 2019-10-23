@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceshipCrafting", "SpaceshipCrafting\SpaceshipCrafting.csproj", "{C344C9F0-6CCD-4954-993F-390E54701FCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceshipCrafting", "SpaceshipCrafting\SpaceshipCrafting.csproj", "{C344C9F0-6CCD-4954-993F-390E54701FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceStationEstablishment", "SpaceStationEstablishment\SpaceStationEstablishment.csproj", "{83A3C224-EC88-4187-9EA5-0E7A1EDF1172}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceStationEstablishment", "SpaceStationEstablishment\SpaceStationEstablishment.csproj", "{83A3C224-EC88-4187-9EA5-0E7A1EDF1172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceStationRecruitment", "SpaceStationRecruitment\SpaceStationRecruitment.csproj", "{A142EB51-5E4B-45F2-9B2C-3D1CDA9FC010}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{83A3C224-EC88-4187-9EA5-0E7A1EDF1172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A3C224-EC88-4187-9EA5-0E7A1EDF1172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83A3C224-EC88-4187-9EA5-0E7A1EDF1172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A142EB51-5E4B-45F2-9B2C-3D1CDA9FC010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A142EB51-5E4B-45F2-9B2C-3D1CDA9FC010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A142EB51-5E4B-45F2-9B2C-3D1CDA9FC010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A142EB51-5E4B-45F2-9B2C-3D1CDA9FC010}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
