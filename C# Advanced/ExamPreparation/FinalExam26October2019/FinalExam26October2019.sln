@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingApp", "DatingApp\DatingApp.csproj", "{4562EF5D-095D-4EDD-9ED0-A8F0B5C9E87D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWorm", "BookWorm\BookWorm.csproj", "{11AF2497-E15C-40C0-8B9B-FA319689322A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbits", "Rabbits\Rabbits.csproj", "{DF9BD150-7ACE-464C-A73B-5BD53426E2DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4562EF5D-095D-4EDD-9ED0-A8F0B5C9E87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4562EF5D-095D-4EDD-9ED0-A8F0B5C9E87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4562EF5D-095D-4EDD-9ED0-A8F0B5C9E87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4562EF5D-095D-4EDD-9ED0-A8F0B5C9E87D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11AF2497-E15C-40C0-8B9B-FA319689322A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11AF2497-E15C-40C0-8B9B-FA319689322A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11AF2497-E15C-40C0-8B9B-FA319689322A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11AF2497-E15C-40C0-8B9B-FA319689322A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF9BD150-7ACE-464C-A73B-5BD53426E2DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9BD150-7ACE-464C-A73B-5BD53426E2DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9BD150-7ACE-464C-A73B-5BD53426E2DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9BD150-7ACE-464C-A73B-5BD53426E2DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69FC17FE-8013-4DA9-B4CA-576D4BA9E7F0}
+	EndGlobalSection
+EndGlobal
