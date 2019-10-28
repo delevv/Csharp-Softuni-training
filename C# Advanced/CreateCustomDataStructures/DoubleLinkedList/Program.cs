@@ -20,11 +20,7 @@ namespace DoubleLinkedList
             doubleLinkedList.AddFirst(2);
             doubleLinkedList.AddFirst(3);
 
-            doubleLinkedList.ForEach(Console.WriteLine, false);
-
-            int[] arr = doubleLinkedList.ToArray();
-
-            foreach (var item in arr)
+            foreach (var item in doubleLinkedList)
             {
                 Console.WriteLine(item);
             }

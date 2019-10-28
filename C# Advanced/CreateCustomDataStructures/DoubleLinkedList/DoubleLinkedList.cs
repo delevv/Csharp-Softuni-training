@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DoubleLinkedList
 {
-    public class DoubleLinkedList<T>
+    public class DoubleLinkedList<T> : IEnumerable<T>
     {
         private class ListNode
         {
@@ -155,6 +156,22 @@ namespace DoubleLinkedList
                 currentNode = currentNode.NextNode;   
             }
             return array;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            var currentNode = this.head;
+
+            while (currentNode != null)
+            {
+                yield return currentNode.Value;
+                currentNode = currentNode.NextNode;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
     }
 }
