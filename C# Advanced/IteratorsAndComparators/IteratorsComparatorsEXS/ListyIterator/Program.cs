@@ -41,6 +41,10 @@ namespace ListyIterator
                 {
                     Console.WriteLine(listyIterator.HasNext());
                 }
+                else if (command == "PrintAll")
+                {
+                    Console.WriteLine(string.Join(" ",listyIterator));
+                }
 
             }
         }
