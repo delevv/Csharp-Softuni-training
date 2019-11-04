@@ -7,59 +7,86 @@ namespace P03_JediGalaxy
     {
         static void Main()
         {
-            int[] dimestions = Console.ReadLine().Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-            int x = dimestions[0];
-            int y = dimestions[1];
+            int[] rowsAndCols = Console.ReadLine().Split().Select(int.Parse).ToArray();
 
-            int[,] matrix = new int[x, y];
+            int rows = rowsAndCols[0];
+            int cols = rowsAndCols[1];
 
-            int value = 0;
-            for (int i = 0; i < x; i++)
-            {
-                for (int j = 0; j < y; j++)
-                {
-                    matrix[i, j] = value++;
-                }
-            }
+            int[,] matrix = new int[rows, cols];
+
+            FillMatrix(rows, cols, matrix);
+
+            var ivo = new Ivo();
+            var evil = new Evil();
 
             string command = Console.ReadLine();
-            long sum = 0;
+
             while (command != "Let the Force be with you")
             {
-                int[] ivoS = command.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-                int[] evil = Console.ReadLine().Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-                int xE = evil[0];
-                int yE = evil[1];
-
-                while (xE >= 0 && yE >= 0)
-                {
-                    if (xE >= 0 && xE < matrix.GetLength(0) && yE >= 0 && yE < matrix.GetLength(1))
-                    {
-                        matrix[xE, yE] = 0;
-                    }
-                    xE--;
-                    yE--;
-                }
-
-                int xI = ivoS[0];
-                int yI = ivoS[1];
-
-                while (xI >= 0 && yI < matrix.GetLength(1))
-                {
-                    if (xI >= 0 && xI < matrix.GetLength(0) && yI >= 0 && yI < matrix.GetLength(1))
-                    {
-                        sum += matrix[xI, yI];
-                    }
-
-                    yI++;
-                    xI--;
-                }
+                UpdateCoordinates(command, ivo, evil);
+                MoveEvil(evil, matrix);
+                MoveIvo(ivo, matrix);
 
                 command = Console.ReadLine();
             }
 
-            Console.WriteLine(sum);
+            Console.WriteLine(ivo.CollectedStars);
 
+        }
+        private static void UpdateCoordinates(string command, Ivo ivo, Evil evil)
+        {
+            var ivoCoordinates = command
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
+
+            ivo.Move(ivoCoordinates[0], ivoCoordinates[1]);
+
+            command = Console.ReadLine();
+
+            var evilCoordinates = command
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
+
+            evil.Move(evilCoordinates[0], evilCoordinates[1]);
+        }
+        private static void FillMatrix(int rows, int cols, int[,] matrix)
+        {
+            int cellValue = 0;
+
+            for (int row = 0; row < rows; row++)
+            {
+                for (int col = 0; col < cols; col++)
+                {
+                    matrix[row, col] = cellValue++;
+                }
+            }
+        }
+
+        private static void MoveIvo(Ivo ivo, int[,] matrix)
+        {
+            while (ivo.Row >= 0)
+            {
+                if (ivo.Row < matrix.GetLength(0) && ivo.Col >= 0 && ivo.Col < matrix.GetLength(1))
+                {
+                    ivo.AddStars(matrix[ivo.Row, ivo.Col]);
+                }
+
+                ivo.Move(ivo.Row - 1, ivo.Col + 1);
+            }
+        }
+
+        private static void MoveEvil(Evil evil, int[,] matrix)
+        {
+            while (evil.Row >= 0)
+            {
+                if (evil.Row < matrix.GetLength(0) && evil.Col >= 0 && evil.Col < matrix.GetLength(1))
+                {
+                    matrix[evil.Row, evil.Col] = 0;
+                }
+                evil.Move(evil.Row - 1, evil.Col - 1);
+            }
         }
     }
 }
