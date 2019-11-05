@@ -26,9 +26,12 @@ namespace P05_GreedyTimes
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine($"<Gold> ${this.Items.Values.Sum()}");
+            if (this.Items.Values.Sum() > 0)
+            {
+                sb.AppendLine($"<Gold> ${this.Items.Values.Sum()}");
+            }
 
-            foreach (var item in this.Items.OrderByDescending(i => i.Key).ThenBy(i => i.Value))
+            foreach (var item in this.Items.Where(i=>i.Value>0).OrderByDescending(i => i.Key).ThenBy(i => i.Value))
             {
                 sb.AppendLine($"##{item.Key} - {item.Value}");
             }

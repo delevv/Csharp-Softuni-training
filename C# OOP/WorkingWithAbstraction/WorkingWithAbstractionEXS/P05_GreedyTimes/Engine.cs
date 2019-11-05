@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace P05_GreedyTimes
 {
@@ -21,8 +19,10 @@ namespace P05_GreedyTimes
 
                 bag.AddItem(currentItem, currentItemQuantity);
             }
-
-            Console.WriteLine(bag);
+            if (bag.currentCapacity > 0)
+            {
+                Console.WriteLine(bag);
+            }
         }
     }
 }
