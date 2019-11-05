@@ -1,155 +1,146 @@
 ﻿using System;
+using System.Linq;
 
-namespace P06_Sneaking
+class Program
 {
-    class Sneaking
+    static void Main(string[] args)
     {
-        static char[][] room;
-        static void Main()
+        int rowsCount = int.Parse(Console.ReadLine());
+        char[][] room = new char[rowsCount][];
+
+        int[] samCoordinates = InitializeMatrix(room);
+
+        string command = Console.ReadLine();
+
+        foreach (var move in command)
         {
-            int n = int.Parse(Console.ReadLine());
-            room = new char[n][];
+            MoveEnemies(room);
+            CheckEnemies(room);
+            MoveSam(move, room, samCoordinates);
+            CheckNikoladze(room);
+        }
+    }
 
-            for (int row = 0; row < n; row++)
+    private static void CheckNikoladze(char[][] room)
+    {
+        for (var row = 0; row < room.Length; row++)
+        {
+            if (room[row].Contains('N') && room[row].Contains('S'))
             {
-                var input = Console.ReadLine().ToCharArray();
-                room[row] = new char[input.Length];
-                for (int col = 0; col < input.Length; col++)
+                room[row][Array.IndexOf(room[row], 'N')] = 'X';
+                Console.WriteLine($"Nikoladze killed!");
+                PrintMatrix(room);
+            }
+        }
+    }
+
+    private static void MoveSam(char move, char[][] room, int[] coordinates)
+    {
+        switch (move)
+        {
+            case 'U':
+                room[coordinates[0]][coordinates[1]] = '.';
+                room[--coordinates[0]][coordinates[1]] = 'S';
+                break;
+            case 'D':
+                room[coordinates[0]][coordinates[1]] = '.';
+                room[++coordinates[0]][coordinates[1]] = 'S';
+                break;
+            case 'L':
+                room[coordinates[0]][coordinates[1]] = '.';
+                room[coordinates[0]][--coordinates[1]] = 'S';
+                break;
+            case 'R':
+                room[coordinates[0]][coordinates[1]] = '.';
+                room[coordinates[0]][++coordinates[1]] = 'S';
+                break;
+            default:
+                break;
+        }
+    }
+
+    private static void CheckEnemies(char[][] room)
+    {
+        for (var row = 0; row < room.Length; row++)
+        {
+            if (room[row].Contains('b') && room[row].Contains('S'))
+            {
+                if (Array.IndexOf(room[row], 'b') < Array.IndexOf(room[row], 'S'))
                 {
-                    room[row][col] = input[col];
+                    room[row][Array.IndexOf(room[row], 'S')] = 'X';
+                    Console.WriteLine($"Sam died at {row}, {Array.IndexOf(room[row], 'X')}");
+                    PrintMatrix(room);
                 }
             }
-
-            var moves = Console.ReadLine().ToCharArray();
-            int[] samPosition = new int[2];
-            for (int row = 0; row < room.Length; row++)
+            else if (room[row].Contains('d') && room[row].Contains('S'))
             {
-                for (int col = 0; col < room[row].Length; col++)
+                if (Array.IndexOf(room[row], 'd') > Array.IndexOf(room[row], 'S'))
                 {
-                    if (room[row][col] == 'S')
-                    {
-                        samPosition[0] = row;
-                        samPosition[1] = col;
-                    }
-                }
-            }
-            for (int i = 0; i < moves.Length; i++)
-            {
-                for (int row = 0; row < room.Length; row++)
-                {
-                    for (int col = 0; col < room[row].Length; col++)
-                    {
-                        if (room[row][col] == 'b')
-                        {
-                            if (row >= 0 && row < room.Length && col + 1 >= 0 && col + 1 < room[row].Length)
-                            {
-                                room[row][col] = '.';
-                                room[row][col + 1] = 'b';
-                                col++;
-                            }
-                            else
-                            {
-                                room[row][col] = 'd';
-                            }
-                        }
-                        else if (room[row][col] == 'd')
-                        {
-                            if (row >= 0 && row < room.Length && col - 1 >= 0 && col - 1 < room[row].Length)
-                            {
-                                room[row][col] = '.';
-                                room[row][col - 1] = 'd';
-                            }
-                            else
-                            {
-                                room[row][col] = 'b';
-                            }
-                        }
-                    }
-                }
-
-                int[] getEnemy = new int[2];
-                for (int j = 0; j < room[samPosition[0]].Length; j++)
-                {
-                    if (room[samPosition[0]][j] != '.' && room[samPosition[0]][j] != 'S')
-                    {
-                        getEnemy[0] = samPosition[0];
-                        getEnemy[1] = j;
-                    }
-                }
-                if (samPosition[1] < getEnemy[1] && room[getEnemy[0]][getEnemy[1]] == 'd' && getEnemy[0] == samPosition[0])
-                {
-                    room[samPosition[0]][samPosition[1]] = 'X';
-                    Console.WriteLine($"Sam died at {samPosition[0]}, {samPosition[1]}");
-                    for (int row = 0; row < room.Length; row++)
-                    {
-                        for (int col = 0; col < room[row].Length; col++)
-                        {
-                            Console.Write(room[row][col]);
-                        }
-                        Console.WriteLine();
-                    }
-                    Environment.Exit(0);
-                }
-                else if (getEnemy[1] < samPosition[1] && room[getEnemy[0]][getEnemy[1]] == 'b' && getEnemy[0] == samPosition[0])
-                {
-                    room[samPosition[0]][samPosition[1]] = 'X';
-                    Console.WriteLine($"Sam died at {samPosition[0]}, {samPosition[1]}");
-                    for (int row = 0; row < room.Length; row++)
-                    {
-                        for (int col = 0; col < room[row].Length; col++)
-                        {
-                            Console.Write(room[row][col]);
-                        }
-                        Console.WriteLine();
-                    }
-                    Environment.Exit(0);
-                }
-
-
-                room[samPosition[0]][samPosition[1]] = '.';
-                switch (moves[i])
-                {
-                    case 'U':
-                        samPosition[0]--;
-                        break;
-                    case 'D':
-                        samPosition[0]++;
-                        break;
-                    case 'L':
-                        samPosition[1]--;
-                        break;
-                    case 'R':
-                        samPosition[1]++;
-                        break;
-                    default:
-                        break;
-                }
-                room[samPosition[0]][samPosition[1]] = 'S';
-
-                for (int j = 0; j < room[samPosition[0]].Length; j++)
-                {
-                    if (room[samPosition[0]][j] != '.' && room[samPosition[0]][j] != 'S')
-                    {
-                        getEnemy[0] = samPosition[0];
-                        getEnemy[1] = j;
-                    }
-                }
-                if (room[getEnemy[0]][getEnemy[1]] == 'N' && samPosition[0] == getEnemy[0])
-                {
-                    room[getEnemy[0]][getEnemy[1]] = 'X';
-                    Console.WriteLine("Nikoladze killed!");
-                    for (int row = 0; row < room.Length; row++)
-                    {
-                        for (int col = 0; col < room[row].Length; col++)
-                        {
-                            Console.Write(room[row][col]);
-                        }
-                        Console.WriteLine();
-                    }
-                    Environment.Exit(0);
+                    room[row][Array.IndexOf(room[row], 'S')] = 'X';
+                    Console.WriteLine($"Sam died at {row}, {Array.IndexOf(room[row], 'X')}");
+                    PrintMatrix(room);
                 }
             }
         }
+    }
 
+    private static void PrintMatrix(char[][] room)
+    {
+        foreach (var row in room)
+        {
+            Console.WriteLine(String.Join("", row));
+        }
+        Environment.Exit(0);
+    }
+
+    private static void MoveEnemies(char[][] room)
+    {
+        for (int row = 0; row < room.Length; row++)
+        {
+            for (int col = 0; col < room[row].Length; col++)
+            {
+                if (room[row][col] == 'b')
+                {
+                    if (col == room[row].Length - 1)
+                    {
+                        room[row][col] = 'd';
+                    }
+                    else
+                    {
+                        room[row][col] = '.';
+                        room[row][++col] = 'b';
+                    }
+                }
+                else if (room[row][col] == 'd')
+                {
+                    if (col == 0)
+                    {
+                        room[row][col] = 'b';
+                    }
+                    else
+                    {
+                        room[row][col] = '.';
+                        room[row][col - 1] = 'd';
+                    }
+                }
+            }
+        }
+    }
+
+    private static int[] InitializeMatrix(char[][] room)
+    {
+        int[] coordinates = null;
+        for (int i = 0; i < room.Length; i++)
+        {
+            string row = Console.ReadLine();
+
+            room[i] = row.ToCharArray();
+
+            if (room[i].Contains('S'))
+            {
+                coordinates = new int[] { i, Array.IndexOf(room[i], 'S') };
+            }
+        }
+        return coordinates;
     }
 }
