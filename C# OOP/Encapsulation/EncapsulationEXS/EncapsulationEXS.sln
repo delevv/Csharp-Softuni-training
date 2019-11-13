@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassBoxData", "ClassBoxData\ClassBoxData.csproj", "{2701C161-D6F4-4B39-8239-34B090F783DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassBoxData", "ClassBoxData\ClassBoxData.csproj", "{2701C161-D6F4-4B39-8239-34B090F783DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalFarm", "AnimalFarm\AnimalFarm.csproj", "{6D33A9D0-0C46-4AFC-BC60-197D09476A71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalFarm", "AnimalFarm\AnimalFarm.csproj", "{6D33A9D0-0C46-4AFC-BC60-197D09476A71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingSpree", "ShoppingSpree\ShoppingSpree.csproj", "{23D801F5-C7AB-41FE-A444-0609E0F24A20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaCalories", "PizzaCalories\PizzaCalories.csproj", "{2B06C6E8-AA6F-4DCE-81E5-0F9AC49CBD3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballTeamGenerator", "FootballTeamGenerator\FootballTeamGenerator.csproj", "{6EDD3103-2921-4D4A-8847-DA1DCD99B981}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{6D33A9D0-0C46-4AFC-BC60-197D09476A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D33A9D0-0C46-4AFC-BC60-197D09476A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D33A9D0-0C46-4AFC-BC60-197D09476A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D801F5-C7AB-41FE-A444-0609E0F24A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D801F5-C7AB-41FE-A444-0609E0F24A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D801F5-C7AB-41FE-A444-0609E0F24A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D801F5-C7AB-41FE-A444-0609E0F24A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B06C6E8-AA6F-4DCE-81E5-0F9AC49CBD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B06C6E8-AA6F-4DCE-81E5-0F9AC49CBD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B06C6E8-AA6F-4DCE-81E5-0F9AC49CBD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B06C6E8-AA6F-4DCE-81E5-0F9AC49CBD3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EDD3103-2921-4D4A-8847-DA1DCD99B981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EDD3103-2921-4D4A-8847-DA1DCD99B981}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EDD3103-2921-4D4A-8847-DA1DCD99B981}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EDD3103-2921-4D4A-8847-DA1DCD99B981}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
