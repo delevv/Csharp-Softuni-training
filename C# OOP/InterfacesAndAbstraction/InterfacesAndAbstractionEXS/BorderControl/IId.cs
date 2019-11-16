@@ -1,6 +1,6 @@
 ﻿namespace BorderControl
 {
-    public interface IId
+    public interface IId : Ibirthdate
     {
         public string Id { get;}
     }

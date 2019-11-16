@@ -10,5 +10,9 @@
 
         public string Model { get;}
         public string Id { get; }
+
+        public string BirthDate =>"no birthDate";
+
+        public string Birthdate => "no birthdate";
     }
 }

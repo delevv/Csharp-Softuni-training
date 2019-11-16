@@ -1,18 +1,21 @@
 ﻿namespace BorderControl
 {
-    public class Citizen : IId
+    public class Citizen : IId, Ibirthdate
     {
-        public Citizen(string name, int age, string id)
+        public Citizen(string name, int age, string id, string birthdate)
         {
             this.Name = name;
             this.Age = age;
             this.Id = id;
+            this.Birthdate = birthdate;
         }
 
         public string Name { get; }
 
         public int Age { get; set; }
-        
+
         public string Id { get; }
+
+        public string Birthdate { get; }
     }
 }
