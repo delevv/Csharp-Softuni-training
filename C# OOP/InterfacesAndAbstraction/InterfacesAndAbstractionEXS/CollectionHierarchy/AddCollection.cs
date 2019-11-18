@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CollectionHierarchy
+﻿namespace CollectionHierarchy
 {
+    using System.Collections.Generic;
+
     public class AddCollection : ICollection, IAddable
     {
         public AddCollection()
