@@ -5,19 +5,29 @@
     {
         public static void Main(string[] args)
         {
-            var carInfo = Console.ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries);
-            
+            var carInfo = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
             var carFuel = double.Parse(carInfo[1]);
             var carConsumption = double.Parse(carInfo[2]);
+            var carTankCapacity = double.Parse(carInfo[3]);
 
-            var car = new Car(carFuel, carConsumption);
-            
-            var truckInfo= Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            var car = new Car(carFuel, carConsumption, carTankCapacity);
+
+            var truckInfo = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
             var truckFuel = double.Parse(truckInfo[1]);
             var truckConsumption = double.Parse(truckInfo[2]);
+            var truckTankCapacity = double.Parse(truckInfo[3]);
 
-            var truck = new Truck(truckFuel, truckConsumption);
+            var truck = new Truck(truckFuel, truckConsumption, truckTankCapacity);
+
+            var busInfo = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+            var busFuel = double.Parse(busInfo[1]);
+            var busConsumption = double.Parse(busInfo[2]);
+            var busTankCapacity = double.Parse(busInfo[3]);
+
+            var bus = new Bus(busFuel, busConsumption, busTankCapacity);
 
             var commandsCount = int.Parse(Console.ReadLine());
 
@@ -40,6 +50,11 @@
                     {
                         Console.WriteLine(truck.Drive(distance));
                     }
+                    else if (vehicle == "Bus")
+                    {
+                        bus.IsEmpty = false;
+                        Console.WriteLine(bus.Drive(distance));
+                    }
                 }
                 else if (commandType == "Refuel")
                 {
@@ -53,11 +68,23 @@
                     {
                         truck.Refuel(liters);
                     }
+                    else if (vehicle == "Bus")
+                    {
+                        bus.Refuel(liters);
+                    }
+                }
+                else if (commandType == "DriveEmpty")
+                {
+                    var distance = double.Parse(commandArgs[2]);
+
+                    bus.IsEmpty = true;
+                    Console.WriteLine(bus.Drive(distance));
                 }
             }
 
             Console.WriteLine(car);
             Console.WriteLine(truck);
+            Console.WriteLine(bus);
         }
     }
 }
