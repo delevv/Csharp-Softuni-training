@@ -5,7 +5,7 @@ class Program
     {
         var spy = new Spy();
 
-        var result = spy.AnalyzeAcessModifiers("Hacker");
+        var result = spy.RevealPrivateMethods("Hacker");
 
         Console.WriteLine(result);
     }
