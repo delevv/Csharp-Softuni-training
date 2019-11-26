@@ -5,7 +5,7 @@ class Program
     {
         var spy = new Spy();
 
-        var result = spy.StealFieldInfo("Hacker", "username", "password");
+        var result = spy.AnalyzeAcessModifiers("Hacker");
 
         Console.WriteLine(result);
     }
