@@ -11,12 +11,13 @@ namespace ViceCity.Core
     {
         private IReader reader;
         private IWriter writer;
-
+        private Controller controller;
 
         public Engine()
         {
             this.reader = new Reader();
             this.writer = new Writer();
+            this.controller = new Controller();
 
         }
         public void Run()
@@ -30,22 +31,26 @@ namespace ViceCity.Core
                 }
                 try
                 {
+                    var result = "";
+
                     if (input[0] == "AddPlayer")
                     {
-                        
+                        result = this.controller.AddPlayer(input[1]);
                     }
                     else if (input[0] == "AddGun")
                     {
-
+                        result = this.controller.AddGun(input[1], input[2]);
                     }
                     else if (input[0] == "AddGunToPlayer")
                     {
-
+                        result = this.controller.AddGunToPlayer(input[1]);
                     }
                     else if (input[0] == "Fight")
                     {
+                        result = this.controller.Fight();
+                    }
 
-                    }            
+                    writer.WriteLine(result);
                 }
                 catch (Exception ex)
                 {
