@@ -1,10 +1,11 @@
 ﻿namespace MortalEngines.IO.Contracts
 {
     using MortalEngines.Core.Contracts;
+    using System;
     using System.Collections.Generic;
 
     public interface IReader
     {
-        IList<ICommand> ReadCommands();
+        string Read();   
     }
 }
