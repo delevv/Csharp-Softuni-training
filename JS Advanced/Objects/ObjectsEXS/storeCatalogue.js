@@ -5,7 +5,7 @@ function solve(input) {
         .sort()
         .forEach(element => {
             if (element[0] !== startLetter) {
-                startLetter = element[0].toUpperCase();
+                startLetter = element[0];
                 console.log(startLetter);
             }
             console.log(`  ${element}`);
