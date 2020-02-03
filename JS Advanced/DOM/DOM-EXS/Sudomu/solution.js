@@ -11,6 +11,7 @@ function solve() {
             let numbersMatrix = [];
             let isSudomu = true;
 
+            //Parse table into matrix
             for (let row = 0; row < tableRows.length; row++) {
                 numbersMatrix[row] = [];
                 for (let col = 0; col < tableRows[row].children.length; col++) {
@@ -24,7 +25,7 @@ function solve() {
                     numbersMatrix[row].push(currNumber);
                 }
             }
-
+            //Check Rows
             for (let row = 0; row < numbersMatrix.length; row++) {
                 let currentRow = numbersMatrix[row];
                 isSudomu = chekArray(currentRow);
@@ -34,7 +35,7 @@ function solve() {
                     return;
                 }
             }
-
+            //Check Cols
             for (let col = 0; col < numbersMatrix[0].length; col++) {
                 let currentCol = [];
                 for (let row = 0; row < numbersMatrix.length; row++) {
@@ -57,12 +58,12 @@ function solve() {
                 if (isSudomu) {
                     table.style.border = "2px solid green";
                     check.textContent = "You solve it! Congratulations!";
-                    check.parentElement.style.color = "green";
+                    check.style.color = "green";
                 }
                 else {
                     table.style.border = "2px solid red";
                     check.textContent = "NOP! You are not done yet...";
-                    check.parentElement.style.color = "red";
+                    check.style.color = "red";
                 }
             }
         }
