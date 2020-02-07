@@ -20,7 +20,7 @@ function printDeckOfCards(cards) {
 
             set face(face) {
                 if (!validFaces.includes(face)) {
-                    throw new Error(`${face}${suit}`);
+                    throw new Error();
                 }
                 this._face = face;
             }
@@ -31,7 +31,7 @@ function printDeckOfCards(cards) {
 
             set suit(suit) {
                 if (!Object.keys(validSuits).includes(suit)) {
-                    throw new Error(`${face}${suit}`);
+                    throw new Error();
                 }
                 this._suit = validSuits[suit];
             }
