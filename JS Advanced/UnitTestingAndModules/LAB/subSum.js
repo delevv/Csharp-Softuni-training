@@ -16,3 +16,4 @@ function solve(array, startIndex, endIndex) {
 
     return sum;
 }
+console.log(solve([],0,0))
