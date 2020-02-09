@@ -19,6 +19,8 @@ describe('test mathEnforcer functionality', () => {
         it('should return correct result with integer or decimal', () => {
             assert.equal(mathEnforcer.addFive(5), 10);
             assert.equal(mathEnforcer.addFive(0.5), 5.5);
+            assert.equal(mathEnforcer.addFive(-5), 0);
+            assert.equal(mathEnforcer.addFive(0.5), 5.5);
         });
     });
 
@@ -32,6 +34,7 @@ describe('test mathEnforcer functionality', () => {
             assert.equal(mathEnforcer.subtractTen(5), -5);
             assert.closeTo(mathEnforcer.subtractTen(10.7), 0.7, 0.01);
             assert.equal(mathEnforcer.subtractTen(21), 11);
+            assert.equal(mathEnforcer.subtractTen(-10), -20);
         });
     });
 
@@ -50,6 +53,7 @@ describe('test mathEnforcer functionality', () => {
             assert.equal(mathEnforcer.sum(5, 5), 10);
             assert.equal(mathEnforcer.sum(-5, 5), 0);
             assert.equal(mathEnforcer.sum(2.5, 3.5), 6);
+            assert.equal(mathEnforcer.sum(-5, -5), -10);
         });
     });
 });
