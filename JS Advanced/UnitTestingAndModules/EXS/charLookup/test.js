@@ -1,4 +1,4 @@
-const lookupChar = require('./lookupChar.js');
+const lookupChar = require('./lookupChar');
 const assert = require('chai').assert;
 
 describe('test lookupChar()', () => {
