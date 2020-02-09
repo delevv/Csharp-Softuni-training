@@ -1,4 +1,4 @@
-let isOddOrEven = require('./evenOrOdd.js');
+let isOddOrEven = require('./evenOrOdd');
 let assert = require('chai').assert;
 
 describe('test isOddOrEven()', () => {
