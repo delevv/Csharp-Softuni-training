@@ -19,6 +19,14 @@ describe('test StringBuilder class functionality', () => {
             let sb = new StringBuilder();
             assert.equal(JSON.stringify(sb._stringArray), '[]');
         });
+
+        it('should have the correct function properties', function () {
+            assert.isFunction(StringBuilder.prototype.append);
+            assert.isFunction(StringBuilder.prototype.prepend);
+            assert.isFunction(StringBuilder.prototype.insertAt);
+            assert.isFunction(StringBuilder.prototype.remove);
+            assert.isFunction(StringBuilder.prototype.toString);
+        });
     });
 
     let sbWithValue;
@@ -79,6 +87,9 @@ describe('test StringBuilder class functionality', () => {
 
             sbEmpty.insertAt('insert', 0);
             assert.equal(sbEmpty.toString(), 'insert');
+
+            sbEmpty.insertAt('insert', 10);
+            assert.equal(sbEmpty.toString(), 'insertinsert');
         });
     });
 
@@ -112,4 +123,16 @@ describe('test StringBuilder class functionality', () => {
             assert.equal(sbEmpty.toString(), '');
         })
     });
+
+    it('should work correct (example test)', () => {
+        let str = new StringBuilder('hello');
+        str.append(', there');
+        assert.equal(str.toString(), 'hello, there');
+        str.prepend('User, ');
+        assert.equal(str.toString(), 'User, hello, there');
+        str.insertAt('woop', 5);
+        assert.equal(str.toString(), 'User,woop hello, there');
+        str.remove(6, 3);
+        assert.equal(str.toString(), 'User,w hello, there');
+    })
 });
