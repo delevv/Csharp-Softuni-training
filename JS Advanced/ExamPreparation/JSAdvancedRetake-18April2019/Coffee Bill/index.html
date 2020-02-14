@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Bill</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h2>Coffee Bill</h2>
+    <table id="bill">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="product-list"></tbody>
+        <tfoot>
+            <tr>
+                <td>Total:</td>
+                <td>0.00</td>
+            </tr>
+        </tfoot>
+    </table>
+    <section id="add-product">
+        <h3>Add new product</h3>
+        <label>
+            <span>
+                Product:
+            </span>
+            <input type="text">
+        </label>
+        <label>
+            <span>
+                Price:
+            </span>
+            <input type="number">
+        </label>
+        <button onclick="addProduct()">Add</button>
+    </section>
+
+    <script>
+        function addProduct() {
+            let inputs = document.getElementsByTagName('input');
+            let product = inputs[0].value;
+            let price = inputs[1].value;
+
+            if (product !== '' && price !== '' && +price > 0) {
+                let list = document.getElementById("product-list");
+
+                let row = document.createElement('tr');
+
+                let td1 = document.createElement('td');
+                td1.textContent = product;
+                row.appendChild(td1);
+
+                let td2 = document.createElement('td');
+                td2.textContent = price;
+                row.appendChild(td2);
+
+                list.appendChild(row);
+
+                let currTotal = Number(list.nextElementSibling.children[0].children[1].textContent);
+                list.nextElementSibling.children[0].children[1].textContent = (currTotal + +price);
+
+                inputs[0].value = '';
+                inputs[1].value = '';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
