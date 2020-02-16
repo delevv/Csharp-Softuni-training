@@ -55,24 +55,25 @@ function mySolution() {
                     if (replySection.style.display !== 'none') {
                         replySection.style.display = 'none';
                         replybutton.textContent = 'Reply';
-                        return;
                     }
-                    replySection.style.display = 'block';
-                    replybutton.textContent = 'Back';
-
-                    let answerButton = replySection.children[1];
-                    answerButton.addEventListener('click', (e) => {
-                        let input = e.target.previousElementSibling;
-                        let list = e.target.nextElementSibling;
-
-                        if (input.value != '') {
-                            let li = document.createElement('li');
-                            li.textContent = input.value;
-                            list.appendChild(li);
-                            input.value = '';
-                        }
-                    });
+                    else {
+                        replySection.style.display = 'block';
+                        replybutton.textContent = 'Back';
+                    }
                 })
+
+                let answerButton = replySection.children[1];
+                answerButton.addEventListener('click', (e) => {
+                    let input = e.target.parentNode.children[0];
+                    let list = e.target.parentNode.children[2];
+
+                    if (input.value != '') {
+                        let li = document.createElement('li');
+                        li.textContent = input.value;
+                        list.appendChild(li);
+                        input.value = '';
+                    }
+                });
                 openQuestions.appendChild(openQuestionDiv);
             });
         }
