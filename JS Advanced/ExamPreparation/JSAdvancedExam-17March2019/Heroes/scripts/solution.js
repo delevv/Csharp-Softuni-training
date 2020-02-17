@@ -8,56 +8,35 @@ function solve() {
    let map = document.getElementById("map");
 
    rebuildButton.addEventListener('click', (e) => {
-      let kingdom = e.target.parentElement.querySelectorAll('input')[0].value.toLowerCase();
-      let king = e.target.parentElement.querySelectorAll('input')[1].value.toLowerCase();
+      let kingdom = e.target.parentElement.querySelectorAll('input')[0];
+      let king = e.target.parentElement.querySelectorAll('input')[1];
 
-      let currentKingdom = map.querySelector(`div[id=${kingdom}]`);
+      let currentKingdom = map.querySelector(`div[id=${kingdom.value.toLowerCase()}]`);
 
-      if (currentKingdom) {
-         let h1 = document.createElement('h1');
-         h1.textContent = kingdom.toUpperCase();
-         currentKingdom.appendChild(h1);
+      if (currentKingdom && currentKingdom.style.display === 'none' && king.value.length >= 2) {
 
-         let div = document.createElement('div');
-         div.classList.add('castle');
-         currentKingdom.appendChild(div);
-
-         let h2 = document.createElement('h2');
-         h2.textContent = king.toUpperCase();
-         currentKingdom.appendChild(h2);
-
-         let fieldset = document.createElement('fieldset');
-
-         let legend = document.createElement('legend');
-         legend.textContent = 'Army';
-         fieldset.appendChild(legend);
-
-         let p1 = document.createElement('p');
-         p1.textContent = 'TANKS - 0';
-         fieldset.appendChild(p1);
-
-         let p2 = document.createElement('p');
-         p2.textContent = 'FIGHTERS - 0';
-         fieldset.appendChild(p2);
-
-         let p3 = document.createElement('p');
-         p3.textContent = 'MAGES - 0';
-         fieldset.appendChild(p3);
-
-         let armyOutPutDiv = document.createElement('div');
-         armyOutPutDiv.classList.add('armyOutput');
-         fieldset.appendChild(armyOutPutDiv);
-
-         currentKingdom.appendChild(fieldset);
+         currentKingdom.innerHTML = `<h1>${kingdom.value.toUpperCase()}</h1>` +
+            '<div class="castle"></div>' +
+            `<h2>${king.value.toUpperCase()}</h2>` +
+            '<fieldset>' +
+            '<legend>Army</legend>' +
+            '<p>TANKS - 0</p>' +
+            '<p>FIGHTERS - 0</p>' +
+            '<p>MAGES - 0</p>' +
+            '<div class="armyOutput"></div>' +
+            '</fieldset>' +
+            '</div>';
 
          currentKingdom.style.display = 'inline-block';
-         return false;
+      }
+      else {
+         king.value = '';
+         kingdom.value = '';
       }
    });
 
-   let characters = document.querySelectorAll('input[type="radio"]');
-
    joinButton.addEventListener('click', (e) => {
+      let characters = document.querySelectorAll('input[type="radio"]');
       let chType = Array.from(characters).filter(ch => ch.checked === true)[0];
 
       if (chType) {
@@ -65,19 +44,62 @@ function solve() {
          let chName = inputs[0].value;
          let chKingdom = inputs[1].value.toLowerCase();
 
-         let currentKingdom = document.querySelector(`div[id=${chKingdom}]`);
+         let currentKingdom = document.querySelector(`div[id="${chKingdom}"]`);
 
          if (chName.length >= 2 && currentKingdom && currentKingdom.style.display === 'inline-block') {
-            let fieldset = currentKingdom.querySelector('fieldset');
-            joinCharacter(chName, fieldset);
+            let fieldsetInfo = currentKingdom.querySelector('fieldset').children;
+
+            switch (chType.value) {
+               case 'fighter': fieldsetInfo[2].textContent = `FIGHTERS - ${Number(fieldsetInfo[2].textContent.split(' ')[2]) + 1}`;
+                  break;
+               case 'mage': fieldsetInfo[3].textContent = `MAGES - ${Number(fieldsetInfo[3].textContent.split(' ')[2]) + 1}`;
+                  break;
+               case 'tank': fieldsetInfo[1].textContent = `TANKS - ${Number(fieldsetInfo[1].textContent.split(' ')[2]) + 1}`;
+                  break;
+            }
+
+            fieldsetInfo[4].textContent += `${chName} `;
+         }
+         else {
+            inputs[0].value = '';
+            inputs[1].value = '';
          }
       }
    });
 
-   function joinCharacter(chName, fieldset) {
+   attackButton.addEventListener('click', (e) => {
+      let attacker = e.target.parentElement.children[1].value.toLowerCase();
+      let defender = e.target.parentElement.children[2].value.toLowerCase();
 
-      switch (chName.value) {
-         case 'fighter': fieldset[1].textContent = `FIGHTERS - ${Number(fieldset[1].split(' ')[2]) + 1}`;
+      let attackKingdom = document.querySelector(`div[id="${attacker}"]`);
+      let defenseKingdom = document.querySelector(`div[id="${defender}"]`);
+
+      if (attackKingdom && attackKingdom.style.display === 'inline-block' && defenseKingdom && defenseKingdom.style.display === 'inline-block') {
+         let attackKingdomPoints = getKingdomPoints(attackKingdom, 'attack');
+         let defenseKingdomPoints = getKingdomPoints(defenseKingdom, 'defense');
+
+         if (attackKingdomPoints > defenseKingdomPoints) {
+            defenseKingdom.children[2].textContent = attackKingdom.children[2].textContent;
+         }
+      }
+      else {
+         e.target.parentElement.children[1].value = '';
+         e.target.parentElement.children[2].value = '';
+      }
+   });
+
+   function getKingdomPoints(kingdom, type) {
+      let fieldSet = kingdom.children[3];
+
+      let tanks = Number(fieldSet.children[1].textContent.split(' ')[2]);
+      let fighters = Number(fieldSet.children[2].textContent.split(' ')[2]);
+      let mages = Number(fieldSet.children[3].textContent.split(' ')[2]);
+
+      if (type === 'attack') {
+         return tanks * 20 + fighters * 50 + mages * 70;
+      }
+      else if (type === 'defense') {
+         return tanks * 80 + fighters * 50 + mages * 30;
       }
    }
 }
