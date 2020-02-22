@@ -62,8 +62,6 @@ class Vacation {
                 result += `${i + 1}. ${kids[i]}\n`;
 
             }
-
-
         });
 
         if (this.numberOfChildren === 0) {
