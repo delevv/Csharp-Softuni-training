@@ -15,10 +15,10 @@ import { requests } from './firebaseRequests.js';
     });
 
     async function showBooks() {
-        tbody.innerHTML = '';
-
-        requests.getAllBooks().then((books) => {
+        await requests.getAllBooks().then((books) => {
             if (books !== null && books !== undefined) {
+                tbody.innerHTML = '';
+
                 Object.entries(books).forEach((book) => {
                     let bookElement = getCurrentBookElement(book);
                     tbody.appendChild(bookElement);
@@ -33,14 +33,12 @@ import { requests } from './firebaseRequests.js';
 
         let titleTd = document.createElement('td');
         titleTd.textContent = bookInfo.title;
+
         let authorTd = document.createElement('td');
         authorTd.textContent = bookInfo.author;
+
         let isbnTD = document.createElement('td');
         isbnTD.textContent = bookInfo.isbn;
-
-        bookRow.appendChild(titleTd);
-        bookRow.appendChild(authorTd);
-        bookRow.appendChild(isbnTD);
 
         let editButton = document.createElement('button');
         editButton.textContent = 'Edit';
@@ -51,17 +49,16 @@ import { requests } from './firebaseRequests.js';
         deleteButton.addEventListener('click', deleteBook);
 
         let buttonsTd = document.createElement('td');
-        buttonsTd.appendChild(editButton);
-        buttonsTd.appendChild(deleteButton);
+        buttonsTd.append(editButton, deleteButton);
 
-        bookRow.appendChild(buttonsTd);
+        bookRow.append(titleTd, authorTd, isbnTD, buttonsTd);
 
         return bookRow;
     }
 
     async function createNewBook() {
         let bookInfo = getBookInfo();
-        requests.createBook(bookInfo);
+        await requests.createBook(bookInfo);
     }
 
     async function editBook() {

@@ -1,30 +1,30 @@
 const firebaseURL = 'https://remotedbexercise.firebaseio.com/'; // place your firebase link here
 
 const requests = {
-    getAllBooks: async () => {
-        return await fetch(`${firebaseURL}books.json`)
+    getAllBooks: () => {
+        return fetch(`${firebaseURL}books.json`)
             .then(CheckStatus)
             .then(r => r.json())
             .catch(handleError);
     },
-    createBook: async (data) => {
-        await fetch(`${firebaseURL}books.json`, {
+    createBook: (data) => {
+        return fetch(`${firebaseURL}books.json`, {
             method: 'POST',
             body: JSON.stringify(data)
         })
             .then(CheckStatus)
             .catch(handleError);
     },
-    updateBook: async (bookId, data) => {
-        await fetch(`${firebaseURL}books/${bookId}.json`, {
+    updateBook: (bookId, data) => {
+        return fetch(`${firebaseURL}books/${bookId}.json`, {
             method: 'PUT',
             body: JSON.stringify(data)
         })
             .then(CheckStatus)
             .catch(handleError);
     },
-    deleteBook: async (bookId) => {
-        await fetch(`${firebaseURL}books/${bookId}.json`, {
+    deleteBook: (bookId) => {
+        return fetch(`${firebaseURL}books/${bookId}.json`, {
             method: 'DELETE'
         })
             .then(CheckStatus)
