@@ -68,15 +68,12 @@ function attachEvents() {
 
         let nameP = document.createElement('p');
         nameP.textContent = `Name: ${name}`;
-        playerDiv.appendChild(nameP);
 
         let moneyP = document.createElement('p');
         moneyP.textContent = `Money: ${money}`;
-        playerDiv.appendChild(moneyP);
 
         let bulletsP = document.createElement('p');
         bulletsP.textContent = `Bullets: ${bullets}`;
-        playerDiv.appendChild(bulletsP);
 
         let playBtn = document.createElement('button');
         playBtn.classList.add('play');
@@ -88,8 +85,8 @@ function attachEvents() {
         deleteBtn.textContent = 'Delete';
         deleteBtn.addEventListener('click', deletePlayer);
 
-        playerDiv.appendChild(playBtn);
-        playerDiv.appendChild(deleteBtn);
+        playerDiv.append(nameP, moneyP, bulletsP, playBtn, deleteBtn);
+
         return playerDiv;
     }
 
