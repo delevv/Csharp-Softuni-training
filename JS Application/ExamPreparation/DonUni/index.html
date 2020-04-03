@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DonUni</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+    <!--notifications-->
+    <section id="notifications">
+        <div class="p-3 mb-2 bg-success w-50 text-white text-center" id="successNotification">Success</div>
+        <div class="p-3 mb-2 bg-danger w-50 text-white text-center" id="errorNotification">Error</div>
+        <div class="p-3 mb-2 bg-info w-50 text-white text-center" id="loadingNotification">Loading...</div>
+    </section>
+    <!--notifications-->
+
+    <!--main container-->
+    <div id="main"></div>
+    <!--main container-->
+
+    <!-- Node Modules -->
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="./node_modules/sammy/lib/sammy.js"></script>
+    <script src="./node_modules/sammy/lib/plugins/sammy.handlebars.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- ./Node Modules -->
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="./config//firebase-config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+    <!--Firebase-->
+
+    <!-- APP -->
+    <script type="module" src="./scripts/app.js"></script>
+    <!-- ./APP -->
+</body>
+
+</html>
