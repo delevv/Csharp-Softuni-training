@@ -19,11 +19,11 @@ CREATE TABLE Categories(
 CREATE TABLE Movies (
 	Id INT PRIMARY KEY IDENTITY,
 	Title NVARCHAR(50) NOT NULL,
-	DirectorId  INT NOT NULL,
+	DirectorId  INT FOREIGN KEY REFERENCES Directors(Id) NOT NULL,
 	CopyrightYear INT,
 	[Length] INT NOT NULL,
-	GenreId INT NOT NULL,
-	CategoryId INT NOT NULL,
+	GenreId INT FOREIGN KEY REFERENCES Genres(Id) NOT NULL,
+	CategoryId INT FOREIGN KEY REFERENCES Categories(Id) NOT NULL,
 	Rating INT,
 	Notes TEXT)
 
