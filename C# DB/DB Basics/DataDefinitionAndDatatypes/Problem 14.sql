@@ -21,7 +21,7 @@ CREATE TABLE Cars(
 	Manufaturer VARCHAR(50) NOT NULL,
 	Model Varchar(50) NOT NULL,
 	CarYear INT NOT NULL,
-	CategoryId INT NOT NULL,
+	CategoryId INT FOREIGN KEY REFERENCES Categories(Id) NOT NULL,
 	Doors TINYINT NOT NULL,
 	Picture VARBINARY,
 	Condition BIT NOT NULL,
@@ -63,9 +63,9 @@ INSERT INTO Customers(DriverLicenceNumber,FullName,[Address],City,ZIPCode)
 
 CREATE TABLE RentalOrders(
 	Id INT PRIMARY KEY IDENTITY,
-	EmployeeId INT NOT NULL,
-	CustomerId INT NOT NULL,
-	CarId INT NOT NULL,
+	EmployeeId INT FOREIGN KEY REFERENCES Employees(Id) NOT NULL,
+	CustomerId INT FOREIGN KEY REFERENCES Customers(Id) NOT NULL,
+	CarId INT FOREIGN KEY REFERENCES Cars(Id) NOT NULL,
 	TankLevel INT NOT NULL,
 	KilometrageStart INT NOT NULL,
 	KilometrageEnd INT NOT NULL,
