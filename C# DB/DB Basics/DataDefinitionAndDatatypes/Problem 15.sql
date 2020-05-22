@@ -58,10 +58,10 @@ INSERT INTO BedTypes(BedType)
 
 CREATE TABLE Rooms(
 	RoomNumber INT PRIMARY KEY Identity,
-	RoomType VARCHAR(10) NOT NULL,
-	BedType VARCHAR(10) NOT NULL,
+	RoomType VARCHAR(10) FOREIGN KEY REFERENCES RoomTypes(RoomType) NOT NULL,
+	BedType VARCHAR(10) FOREIGN KEY REFERENCES BedTypes(BedType) NOT NULL,
 	Rate INT,
-	RoomStatus VARCHAR(10) NOT NULL,
+	RoomStatus VARCHAR(10) FOREIGN KEY REFERENCES RoomStatus(RoomStatus) NOT NULL,
 	Notes TEXT)
 
 INSERT INTO Rooms(RoomType,BedType,RoomStatus)
@@ -72,9 +72,9 @@ INSERT INTO Rooms(RoomType,BedType,RoomStatus)
 
 CREATE TABLE Payments(
 	Id INT PRIMARY KEY IDENTITY,
-	EmployeeId INT NOT NULL,
+	EmployeeId INT FOREIGN KEY REFERENCES Employees(Id) NOT NULL,
 	PaymentDate DATE NOT NULL,
-	AccountNumber INT NOT NULL,
+	AccountNumber INT FOREIGN KEY REFERENCES Customers(AccountNumber) NOT NULL,
 	FirstDateOccupied DATE NOT NULL,
 	LastDateOccupied DATE NOT NULL,
 	TotalDays INT NOT NULL,
@@ -92,10 +92,10 @@ INSERT INTO Payments(EmployeeId,PaymentDate,AccountNumber,FirstDateOccupied,Last
 
 CREATE TABLE Occupancies(
 	Id INT PRIMARY KEY IDENTITY,
-	EmployeeId INT NOT NULL,
+	EmployeeId INT FOREIGN KEY REFERENCES Employees(Id) NOT NULL,
 	DateOccupied DATE NOT NULL,
-	AccountNumber INT NOT NULL,
-	RoomNumber INT NOT NULL,
+	AccountNumber INT FOREIGN KEY REFERENCES Customers(AccountNumber) NOT NULL,
+	RoomNumber INT FOREIGN KEY REFERENCES Rooms(RoomNumber) NOT NULL,
 	RateApplied INT,
 	PhoneCharge DECIMAL(6,2),
 	Notes TEXT)
