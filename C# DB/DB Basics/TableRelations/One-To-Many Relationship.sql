@@ -7,5 +7,5 @@ CREATE TABLE Manufacturers(
 CREATE TABLE Models(
 	ModelID INT PRIMARY KEY IDENTITY,
 	Name VARCHAR(50) NOT NULL,
-	ManufacturerID INT NOT NULL REFERENCES Manufacturers(ManufacturerID)
+	ManufacturerID INT NOT NULL FOREIGN KEY REFERENCES Manufacturers(ManufacturerID)
 )
