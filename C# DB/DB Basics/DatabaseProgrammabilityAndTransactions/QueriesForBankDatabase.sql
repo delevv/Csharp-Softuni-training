@@ -67,3 +67,94 @@ END
 GO
 
 EXEC dbo.usp_CalculateFutureValueForAccount 1, 0.1
+
+--Problem 14.Create Table Logs
+CREATE TABLE Logs(
+	LogId INT PRIMARY KEY IDENTITY,
+	AccountId INT NOT NULL REFERENCES Accounts(Id),
+	OldSum MONEY NOT NULL,
+	NewSum MONEY NOT NULL
+)
+
+GO
+
+CREATE TRIGGER trg_CreateLogWhenUpdateOnAccounts
+ON Accounts FOR UPDATE
+AS
+BEGIN
+	INSERT INTO Logs(AccountId, OldSum, NewSum)
+	    SELECT i.Id, d.Balance, i.Balance
+		FROM inserted AS i
+		JOIN deleted AS d ON i.Id = d.Id
+END
+
+GO
+
+--Problem 15.Create Table Emails
+CREATE TABLE NotificationEmails(
+	Id INT PRIMARY KEY IDENTITY,
+	Recipient INT NOT NULL REFERENCES Accounts(Id),
+	[Subject] VARCHAR(50) NOT NULL,
+	Body VARCHAR(100) NOT NULL
+)
+
+GO
+
+CREATE TRIGGER trg_CreateEmailWhenInsertInLogs
+ON Logs FOR INSERT
+AS
+BEGIN
+	INSERT INTO NotificationEmails(Recipient, [Subject], Body)
+	    SELECT i.AccountId,
+			   CONCAT('Balance change for account: ', i.AccountId),
+			   CONCAT('On ',FORMAT(GETDATE(), 'MMM dd yyyy HH:mmtt'),' your balance was changed from ',i.OldSum,' to ',i.NewSum,'.')
+		FROM inserted AS i
+END
+
+GO
+
+--Problem 16.Deposit Money
+GO
+
+CREATE PROC usp_DepositMoney @AccountId INT, @MoneyAmount MONEY
+AS
+BEGIN
+	IF (SELECT COUNT(*) FROM Accounts WHERE Id = @AccountId) > 0
+	AND @MoneyAmount > 0
+		BEGIN
+			UPDATE Accounts
+			SET Balance += @MoneyAmount
+			WHERE Id = @AccountId
+		END 
+END
+
+GO
+
+--Problem 17.Withdraw Money
+GO
+
+CREATE PROC usp_WithdrawMoney @AccountId INT, @MoneyAmount MONEY
+AS
+BEGIN
+	IF (SELECT COUNT(*) FROM Accounts WHERE Id = @AccountId) > 0
+	AND @MoneyAmount > 0
+		BEGIN
+			UPDATE Accounts
+			SET Balance -= @MoneyAmount
+			WHERE Id = @AccountId
+		END 
+END
+
+GO
+
+--Problem 18.Money Transfer
+GO
+
+CREATE PROC usp_TransferMoney @SenderId INT, @ReceiverId INT, @Amount MONEY
+AS
+BEGIN
+	EXEC dbo.usp_WithdrawMoney @SenderId, @Amount
+	EXEC dbo.usp_DepositMoney @ReceiverId, @Amount
+END
+
+GO
