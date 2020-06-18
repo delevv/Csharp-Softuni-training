@@ -172,3 +172,54 @@ END
 EXECUTE dbo.usp_DeleteEmployeesFromDepartment 1
 
 GO
+
+--Problem 21.Employees with Three Projects
+CREATE PROCEDURE usp_AssignProject(@employeeId INT, @projectID INT)
+AS
+BEGIN
+	BEGIN TRAN
+    
+	INSERT INTO EmployeesProjects
+    VALUES (@employeeId, @projectID)
+    IF (SELECT COUNT(ProjectID)
+        FROM EmployeesProjects
+        WHERE EmployeeID = @employeeId
+	   ) > 3
+      BEGIN
+	    RAISERROR ('The employee has too many projects!', 16, 1)
+        ROLLBACK
+        RETURN
+      END
+
+    COMMIT
+END
+
+GO
+
+--Problem 22.Delete Employees
+CREATE TABLE Deleted_Employees(
+	EmployeeId INT PRIMARY KEY IDENTITY,
+	FirstName VARCHAR(50) NOT NULL,
+	LastName VARCHAR(50) NOT NULL,
+	MiddleName VARCHAR(50),
+	JobTitle VARCHAR(50),
+	DepartmentId INT,
+	Salary MONEY
+)
+
+GO
+
+CREATE TRIGGER tr_DeleteEmployees
+ON Employees AFTER DELETE
+AS
+BEGIN
+    INSERT INTO Deleted_Employees
+      SELECT
+        FirstName,
+        LastName,
+        MiddleName,
+        JobTitle,
+        DepartmentID,
+        Salary
+      FROM deleted
+END
