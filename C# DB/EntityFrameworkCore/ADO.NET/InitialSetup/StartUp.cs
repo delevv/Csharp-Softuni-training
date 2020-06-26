@@ -61,6 +61,53 @@ namespace InitialSetup
                                                     )";
             CreateTable(sqlConnectionMinionsDB, createTableMinionsVillainsQuery);
 
+            var countriesInsertQuery = @"INSERT INTO Countries([Name])
+	                                        VALUES ('Bulgaria'),
+	                                        	   ('Serbia'),
+	                                        	   ('Romania'),
+	                                        	   ('Germani'),
+	                                        	   ('Austria')";
+            InsertIntoTable(sqlConnectionMinionsDB, countriesInsertQuery);
+
+            var townsInsertQuery = @"INSERT INTO Towns([Name],CountryCode)
+	                                        VALUES ('Burgas', 1),
+	                                               ('Belgrade', 2),
+	                                        	   ('Bucurest', 3),
+	                                        	   ('Berlin', 4),
+	                                        	   ('Salzburg', 5)";
+            InsertIntoTable(sqlConnectionMinionsDB, townsInsertQuery);
+
+            var minionsInsertQuery = @"INSERT INTO Minions([Name], Age, TownId)
+	                                        VALUES ('Peter', 14, 1),
+	                                               ('Mladen', 13, 2),
+	                                        	   ('Asen', 17, 3),
+	                                        	   ('Gosho', 12, 4),
+	                                        	   ('Dilan', 18, 5)";
+            InsertIntoTable(sqlConnectionMinionsDB, minionsInsertQuery);
+
+            var evilnessFactorsInsertQuery = @"INSERT INTO EvilnessFactors([Name])
+	                                                VALUES ('not evil'),
+	                                                       ('kind evil'),
+	                                                	   ('evil'),
+	                                                	   ('medium evil'),
+	                                                	   ('bad evil')";
+            InsertIntoTable(sqlConnectionMinionsDB, evilnessFactorsInsertQuery);
+
+            var villainsInsertQuery = @"INSERT INTO Villains([Name],EvilnessFactorId)
+	                                        VALUES ('Chubaka', 1),
+	                                               ('Hitler', 2),
+	                                        	   ('Voldemort', 3),
+	                                        	   ('DarthVader', 4),
+	                                        	   ('Loki', 5)";
+            InsertIntoTable(sqlConnectionMinionsDB, villainsInsertQuery);
+
+            var minionsVillainsInsertQuery = @"INSERT INTO MinionsVillains(MinionId, VillainId)
+	                                                VALUES (1, 1),
+	                                                       (2, 1),
+	                                                	   (3, 1),
+	                                                	   (1, 2),
+	                                                	   (1, 3)";
+            InsertIntoTable(sqlConnectionMinionsDB, minionsVillainsInsertQuery);
         }
 
         public static void CreateTable(SqlConnection sqlConnection, string tableQuery)
@@ -72,6 +119,12 @@ namespace InitialSetup
         public static void CreateDatabase(SqlConnection sqlConnection, string databaseQuery)
         {
             var myCommand = new SqlCommand(databaseQuery, sqlConnection);
+            myCommand.ExecuteNonQuery();
+        }
+
+        public static void InsertIntoTable(SqlConnection sqlConnection, string insertQuery)
+        {
+            var myCommand = new SqlCommand(insertQuery, sqlConnection);
             myCommand.ExecuteNonQuery();
         }
     }
