@@ -112,19 +112,19 @@ namespace InitialSetup
 
         public static void CreateTable(SqlConnection sqlConnection, string tableQuery)
         {
-            var myCommand = new SqlCommand(tableQuery, sqlConnection);
+            using var myCommand = new SqlCommand(tableQuery, sqlConnection);
             myCommand.ExecuteNonQuery();
         }
 
         public static void CreateDatabase(SqlConnection sqlConnection, string databaseQuery)
         {
-            var myCommand = new SqlCommand(databaseQuery, sqlConnection);
+           using var myCommand = new SqlCommand(databaseQuery, sqlConnection);
             myCommand.ExecuteNonQuery();
         }
 
         public static void InsertIntoTable(SqlConnection sqlConnection, string insertQuery)
         {
-            var myCommand = new SqlCommand(insertQuery, sqlConnection);
+            using var myCommand = new SqlCommand(insertQuery, sqlConnection);
             myCommand.ExecuteNonQuery();
         }
     }
