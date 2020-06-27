@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitialSetup", "InitialSetup\InitialSetup.csproj", "{F792E4ED-A79E-47EB-AFC3-2400B63B344B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InitialSetup", "InitialSetup\InitialSetup.csproj", "{F792E4ED-A79E-47EB-AFC3-2400B63B344B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VillainNames", "VillainNames\VillainNames.csproj", "{330F7F4D-CCE8-4D59-9421-5618D8117205}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VillainNames", "VillainNames\VillainNames.csproj", "{330F7F4D-CCE8-4D59-9421-5618D8117205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinionNames", "MinionNames\MinionNames.csproj", "{3C091F52-0C66-4AE8-86ED-DCEAB262610D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinionNames", "MinionNames\MinionNames.csproj", "{3C091F52-0C66-4AE8-86ED-DCEAB262610D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddMinion", "AddMinion\AddMinion.csproj", "{7099E469-36ED-4255-AAD0-1F8F6FF7E0D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddMinion", "AddMinion\AddMinion.csproj", "{7099E469-36ED-4255-AAD0-1F8F6FF7E0D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeTownNamesCasing", "ChangeTownNamesCasing\ChangeTownNamesCasing.csproj", "{2851520B-E62B-4C88-8C44-91FA4BCCDD2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7099E469-36ED-4255-AAD0-1F8F6FF7E0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7099E469-36ED-4255-AAD0-1F8F6FF7E0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7099E469-36ED-4255-AAD0-1F8F6FF7E0D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2851520B-E62B-4C88-8C44-91FA4BCCDD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2851520B-E62B-4C88-8C44-91FA4BCCDD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2851520B-E62B-4C88-8C44-91FA4BCCDD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2851520B-E62B-4C88-8C44-91FA4BCCDD2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
