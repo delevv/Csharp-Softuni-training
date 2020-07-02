@@ -75,7 +75,7 @@ namespace MiniORM
 
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
-            foreach (var entity in entities)
+            foreach (var entity in entities.ToArray())
             {
                 this.Remove(entity);
             }

@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace MiniORM
 {
@@ -63,7 +63,7 @@ namespace MiniORM
             {
                 using (var transaction = this.connection.StartTransaction())
                 {
-                    foreach (IEnumerable<object> dbSet in dbSets)
+                    foreach (IEnumerable dbSet in dbSets)
                     {
                         var dbSetType = dbSet.GetType()
                             .GetGenericArguments()
@@ -261,7 +261,7 @@ namespace MiniORM
                 {
                     var foreignKeyValue = foreignKey.GetValue(entity);
 
-                    var navigationPropertyValue = ((IEnumerable<object>)navigationDbSet)
+                    var navigationPropertyValue = ((IEnumerable<object>) navigationDbSet)
                         .First(currentNavProperty => navigationPrimaryKey.GetValue(currentNavProperty).Equals(foreignKeyValue));
 
                     navigationProperty.SetValue(entity, navigationPropertyValue);
