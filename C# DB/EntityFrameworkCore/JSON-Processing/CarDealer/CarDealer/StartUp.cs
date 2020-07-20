@@ -120,7 +120,8 @@ namespace CarDealer
         //14.Export Ordered Customers
         public static string GetOrderedCustomers(CarDealerContext context)
         {
-            var customers = context.Customers
+            var customers = context.Customers  
+                .AsEnumerable() // for judge system
                 .OrderBy(c => c.BirthDate)
                 .ThenBy(c => c.IsYoungDriver)
                 .Select(c => new
@@ -142,7 +143,7 @@ namespace CarDealer
             var carsFromMakeToyota = context.Cars
                 .Where(c => c.Make == "Toyota")
                 .OrderBy(c => c.Model)
-                .OrderByDescending(c => c.TravelledDistance)
+                .ThenByDescending(c => c.TravelledDistance)
                 .Select(c => new
                 {
                     c.Id,
