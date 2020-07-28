@@ -33,7 +33,7 @@ namespace PetStore.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Breed");
+                    b.ToTable("Breeds");
                 });
 
             modelBuilder.Entity("PetStore.Models.Client", b =>
@@ -71,7 +71,7 @@ namespace PetStore.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Client");
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("PetStore.Models.ClientProduct", b =>
@@ -95,7 +95,7 @@ namespace PetStore.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ClientProduct");
+                    b.ToTable("ClientProducts");
                 });
 
             modelBuilder.Entity("PetStore.Models.Order", b =>
@@ -126,7 +126,7 @@ namespace PetStore.Data.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("PetStore.Models.Pet", b =>
@@ -164,7 +164,7 @@ namespace PetStore.Data.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("Pet");
+                    b.ToTable("Pets");
                 });
 
             modelBuilder.Entity("PetStore.Models.Product", b =>
@@ -186,7 +186,7 @@ namespace PetStore.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("PetStore.Models.ClientProduct", b =>
